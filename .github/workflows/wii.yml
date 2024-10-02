@@ -19,7 +19,7 @@ jobs:
         git clone https://github.com/libretro/RetroArch.git retroarch --recursive
     - name: Compile libretro_wii.a
       run: |
-        make -f Makefile
+        make -f Makefile platform=wii
         cp libretro_wii.a retroarch
     - name: Compile RA Frontend
       run: |
