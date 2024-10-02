@@ -301,7 +301,7 @@ include $(DEVKITPRO)/libnx/switch_rules
 
 # Nintendo Game Cube / Wii / WiiU
 else ifneq (,$(filter $(platform), ngc wii wiiu))
-   TARGET := $(TARGET_NAME)_libretro_$(platform).a
+   TARGET := libretro_$(platform).a
    CC = $(DEVKITPPC)/bin/powerpc-eabi-gcc$(EXE_EXT)
    CXX = $(DEVKITPPC)/bin/powerpc-eabi-g++$(EXE_EXT)
    AR = $(DEVKITPPC)/bin/powerpc-eabi-ar$(EXE_EXT)
