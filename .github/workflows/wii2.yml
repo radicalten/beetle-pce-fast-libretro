@@ -2,7 +2,7 @@ name: Wii-ppc-ra-complete2
 on:
   push:
     branches:
-    - fast
+    - master
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,7 +20,7 @@ jobs:
     - name: Compile libretro_wii.a
       run: |
         make -f Makefile platform=wii
-         cp mednafen_pce_fast_libretro_wii.a retroarch
+         cp libretro_wii.a retroarch
     - name: Compile RA Frontend
       run: |
         cd retroarch
