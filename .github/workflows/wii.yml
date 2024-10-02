@@ -14,22 +14,6 @@ jobs:
       run: |
         cd .
         git clone https://github.com/libretro/RetroArch.git retroarch --recursive
-    - name: Install OpenGX
-      run: |
-        cd .
-        git clone https://github.com/devkitPro/opengx.git
-        cd opengx
-        mkdir build && cd build
-        cmake -DCMAKE_TOOLCHAIN_FILE="$DEVKITPRO/cmake/Wii.cmake" ..
-        make && sudo -E PATH=$PATH make install 
-    - name: Install FreeGLUT
-      run: |
-        cd .
-        git clone https://github.com/freeglut/freeglut.git
-        cd freeglut
-        mkdir build && cd build
-        cmake -DCMAKE_TOOLCHAIN_FILE="$DEVKITPRO/cmake/Wii.cmake" -DFREEGLUT_BUILD_DEMOS=OFF ..
-        make && sudo -E PATH=$PATH make install 
     - name: Compile libretro_wii.a
       run: |
         make -f Makefile
