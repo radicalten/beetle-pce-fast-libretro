@@ -16,9 +16,17 @@ jobs:
     - name: Compile libretro_wii.a
       run: |
         make -f Makefile platform=wii
+         cp mednafen_pce_fast_libretro_wii.a retroarch
+    - name: Compile RA Frontend
+      run: |
+        cd retroarch
+        make -f Makefile.griffin platform=wii EXTERNAL_LIBOGC=1 GX_PTHREAD_LEGACY=0
+    - name: Create tarball
+      run: |
+          tar -cvf retroarch_wii.tgz ./retroarch/retroarch_wii.dol
     - name: Upload
       uses: actions/upload-artifact@v4
       with:
         name: Artifact
         path: |
-          .
+          ./retroarch_wii.tgz
