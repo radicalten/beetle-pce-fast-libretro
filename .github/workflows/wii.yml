@@ -13,24 +13,12 @@ jobs:
     - name: Config
       run: |
         git config --global --add safe.directory /__w/beetle-pce-fast-libretro/beetle-pce-fast-libretro
-    - name: Install RetroArch
-      run: |
-        cd .
-        git clone https://github.com/libretro/RetroArch.git retroarch --recursive
     - name: Compile libretro_wii.a
       run: |
         make -f Makefile platform=wii
-        cp libretro_wii.a retroarch
-    - name: Compile RA Frontend
-      run: |
-        cd retroarch
-        make -f Makefile.griffin platform=wii EXTERNAL_LIBOGC=1 GX_PTHREAD_LEGACY=0
-    - name: Create tarball
-      run: |
-          tar -cvf retroarch_wii.tgz ./retroarch/retroarch_wii.dol
     - name: Upload
       uses: actions/upload-artifact@v4
       with:
         name: Artifact
         path: |
-          ./retroarch_wii.tgz
+          .
