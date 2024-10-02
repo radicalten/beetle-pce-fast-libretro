@@ -10,6 +10,9 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
+    - name: Config
+      run: |
+        git config --global --add safe.directory /__w/beetle-pce-fast-libretro/beetle-pce-fast-libretro
     - name: Install RetroArch
       run: |
         cd .
